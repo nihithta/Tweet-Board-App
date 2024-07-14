@@ -1,0 +1,66 @@
+###
+### Register a new user
+POST http://localhost:3000/register/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword",
+  "name": "Test User",
+  "gender": "Male"
+}
+
+###
+### Login with the registered user to get JWT token
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+###
+### Get the latest 4 tweets from users the authenticated user follows
+GET http://localhost:3000/user/tweets/feed/
+Authorization: Bearer {{jwtToken}}
+
+###
+### Get the list of users the authenticated user follows
+GET http://localhost:3000/user/following/
+Authorization: Bearer {{jwtToken}}
+
+###
+### Get the list of users who follow the authenticated user
+GET http://localhost:3000/user/followers/
+Authorization: Bearer {{jwtToken}}
+
+###
+### Create a tweet for the authenticated user
+POST http://localhost:3000/user/tweets/
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "tweet": "This is my first tweet!"
+}
+
+###
+### Delete a tweet (replace :tweetId with an actual tweet ID)
+DELETE http://localhost:3000/tweets/:tweetId/
+Authorization: Bearer {{jwtToken}}
+
+###
+### Get all tweets of the authenticated user
+GET http://localhost:3000/user/tweets/
+Authorization: Bearer {{jwtToken}}
+
+###
+### Get likes on a tweet (replace :tweetId with an actual tweet ID)
+GET http://localhost:3000/tweets/:tweetId/likes/
+Authorization: Bearer {{jwtToken}}
+
+###
+### Get replies to a tweet (replace :tweetId with an actual tweet ID)
+GET http://localhost:3000/tweets/:tweetId/replies/
+Authorization: Bearer {{jwtToken}}

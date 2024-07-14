@@ -1,0 +1,13 @@
+{
+  "name": "twitter-backend",
+  "version": "1.0.0",
+  "description": "A Twitter clone with Express.js and SQLite",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.2",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "bcrypt": "^5.0.1"
+  }
+}
